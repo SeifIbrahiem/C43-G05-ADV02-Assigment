@@ -2,36 +2,41 @@
 {
     internal class Program
     {
-        public static void printqueue(Queue<int> queue)
+
+        #region ex5
+        public static int RemoveDuplicates(int[] nums)
         {
-            Console.WriteLine("Original Queue:");
-            foreach (int item in queue)
+            if (nums.Length == 0)
             {
-                Console.Write(item + " ");
+                return 0;
             }
-            Console.WriteLine();
-            Console.WriteLine("Reversed Queue:");
-            foreach (int item in queue)
+            int slow = 0;
+            for (int fast = 1; fast < nums.Length; fast++)
             {
-                Console.Write(item + " ");
+                if (nums[slow] != nums[fast])
+                {
+                    slow++;
+                    nums[slow] = nums[fast];
+                }
+            }
+            return slow + 1;
+        }
+        public static void Main(string[] args)
+        {
+            int[] nums = { 0, 0, 1, 1, 1, 2, 2, 3, 3, 4 };
+            int k = RemoveDuplicates(nums);
+            Console.WriteLine("Number of unique elements: " + k);
+            Console.WriteLine("Array after removing duplicates:");
+            for (int i = 0; i < k; i++)
+            {
+                Console.Write(nums[i] + " ");
             }
             Console.WriteLine();
         }
-        static void Main(string[] args)
-        {
-            #region ex3
-            Queue<int> queue = new Queue<int>();
-            queue.Enqueue(10);
-            queue.Enqueue(20);
-            queue.Enqueue(30);
-            queue.Enqueue(40);
-            queue.Enqueue(50);
-            printqueue(queue);
-            queue.Reverse();
-            Console.WriteLine($"reverse:{queue}"); 
-            #endregion
+    } 
+    #endregion
 
-
-        }
-    }
 }
+
+        
+
