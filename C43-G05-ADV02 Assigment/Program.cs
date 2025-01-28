@@ -1,6 +1,7 @@
 ﻿namespace C43_G05_ADV02_Assigment
 {
 
+    #region example7
     public class MultiTypeQueue
     {
         private Queue<object> _queue = new Queue<object>();
@@ -20,6 +21,7 @@
         }
 
         public int Count => _queue.Count;
+        #endregion
 
 
         internal class Program
@@ -79,21 +81,23 @@
             //} 
             #endregion
 
-            public static void Main(string[] args)
-            {
-                MultiTypeQueue queue = new MultiTypeQueue();
+            #region example7
+            //public static void Main(string[] args)
+            //{
+            //    MultiTypeQueue queue = new MultiTypeQueue();
 
-                queue.Enqueue(1);
-                queue.Enqueue("Apple");
-                queue.Enqueue(5.28);
-                Console.WriteLine($"Queue Count: {queue.Count}");
+            //    queue.Enqueue(1);
+            //    queue.Enqueue("Apple");
+            //    queue.Enqueue(5.28);
+            //    Console.WriteLine($"Queue Count: {queue.Count}");
 
-               
-            }
+
+            //} 
+            #endregion
+
 
         }
     }
 }
-
         
 
