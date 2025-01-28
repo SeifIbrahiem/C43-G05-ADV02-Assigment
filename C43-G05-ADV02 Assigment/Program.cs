@@ -95,9 +95,44 @@
             //} 
             #endregion
 
+                public static int[] CountGreaterThan(int[] arr, int[] queries)
+                {
+                    Array.Sort(arr);
+                    Array.Reverse(arr);
 
+                    int[] results = new int[queries.Length];
+                    for (int i = 0; i < queries.Length; i++)
+                    {
+                        int count = 0;
+                        foreach (int num in arr)
+                        {
+                            if (num > queries[i])
+                            {
+                                count++;
+                            }
+                            else
+                            {
+                                break; 
+                            }
+                        }
+                        results[i] = count;
+                    }
+
+                    return results;
+                }
+
+                public static void Main(string[] args)
+                {
+                    int[] arr = { 11, 5, 3 };
+                    int[] queries = { 1, 5, 13 };
+
+                    int[] results = CountGreaterThan(arr, queries);
+
+                    Console.WriteLine(string.Join(" ", results)); 
+                }
+            }
         }
     }
-}
-        
+
+
 
